@@ -21,6 +21,10 @@ function initializeAllFeatures() {
     initializeCursorTrail();
     initializeFireworks();
     initializeAuroraInteraction();
+
+    // Card and Wish Controls  
+    initializeCardControls();
+    initializeFriendshipWish();
 }
 
 // ============================================
@@ -315,6 +319,49 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// ============================================
+//    CARD SHOW/HIDE CONTROLS
+// ============================================
+function initializeCardControls() {
+    const showCardButton = document.getElementById('showCardButton');
+    const glassCard = document.querySelector('.glass-card');
+
+    if (showCardButton && glassCard) {
+        showCardButton.addEventListener('click', () => {
+            glassCard.classList.add('show');
+            showCardButton.classList.add('hidden');
+        });
+    }
+}
+
+// ============================================
+//    FRIENDSHIP WISH POPUP
+// ============================================
+function initializeFriendshipWish() {
+    const wishButton = document.getElementById('wishButton');
+    const friendshipWish = document.getElementById('friendshipWish');
+    const closeWish = document.getElementById('closeWish');
+
+    if (wishButton && friendshipWish) {
+        wishButton.addEventListener('click', () => {
+            friendshipWish.classList.add('show');
+        });
+    }
+
+    if (closeWish && friendshipWish) {
+        closeWish.addEventListener('click', () => {
+            friendshipWish.classList.remove('show');
+        });
+
+        // Close when clicking outside the card
+        friendshipWish.addEventListener('click', (e) => {
+            if (e.target === friendshipWish) {
+                friendshipWish.classList.remove('show');
+            }
+        });
+    }
+}
+
 // Console Easter Egg
 console.log('%c🎄 Merry Christmas & Happy New Year! 🎅',
     'font-size: 24px; color: #ff6b6b; font-weight: bold; text-shadow: 2px 2px 4px #000;'
@@ -322,6 +369,6 @@ console.log('%c🎄 Merry Christmas & Happy New Year! 🎅',
 console.log('%c✨ May your code be bug-free and your holidays be magical! ✨',
     'font-size: 16px; color: #6bcf7f; font-weight: bold;'
 );
-console.log('%c💡 Try clicking on Santa, the star, and ornaments! Click anywhere for fireworks!',
+console.log('%c💡Click the green button to open the card! Then click the wish button inside!',
     'font-size: 14px; color: #ffd93d;'
 );

@@ -160,16 +160,105 @@
 
     <!-- Frosted Glass Message Card -->
     <div class="glass-card">
+      <!-- Close Button -->
+      <button class="close-card-btn" id="closeCardBtn">✕</button>
+
+      <!-- Decorative Corner Elements -->
+      <div class="corner-decor corner-top-left">❄️</div>
+      <div class="corner-decor corner-top-right">⭐</div>
+      <div class="corner-decor corner-bottom-left">🎄</div>
+      <div class="corner-decor corner-bottom-right">🎁</div>
+
+      <!-- Animated Border Lights -->
+      <div class="border-light light-top"></div>
+      <div class="border-light light-right"></div>
+      <div class="border-light light-bottom"></div>
+      <div class="border-light light-left"></div>
+
+      <!-- Floating Ornaments Inside Card -->
+      <div class="floating-ornament ornament-1">✨</div>
+      <div class="floating-ornament ornament-2">💫</div>
+      <div class="floating-ornament ornament-3">⭐</div>
+      <div class="floating-ornament ornament-4">🌟</div>
+
       <div class="glass-content">
-        <h3 class="glass-title">🎄 Special Wishes 🎄</h3>
-        <p class="glass-message">May your holidays sparkle with moments of love, laughter and goodwill!</p>
-        <div class="glass-signature">- Sam ❤️</div>
+        <!-- Decorative Top Border -->
+        <div class="decorative-top">
+          <span class="deco-star">⭐</span>
+          <span class="deco-line"></span>
+          <span class="deco-snowflake">❄️</span>
+          <span class="deco-line"></span>
+          <span class="deco-star">⭐</span>
+        </div>
+
+        <h3 class="glass-title">
+          <span class="title-shimmer">🎄 Special Wishes 🎄</span>
+        </h3>
+
+        <!-- Premium Wish Button with Glow Effect -->
+        <div class="button-wrapper">
+          <div class="button-glow"></div>
+          <button class="wish-button" id="wishButton">
+            <span class="button-shine"></span>
+            <span class="button-icon">🎁</span>
+            <span class="button-text">Click for Special Wish</span>
+            <span class="button-sparkle sparkle-1">✨</span>
+            <span class="button-sparkle sparkle-2">✨</span>
+          </button>
+        </div>
+
+        <!-- Decorative Divider -->
+        <div class="decorative-divider">
+          <span class="divider-icon">💝</span>
+        </div>
+
+        <div class="glass-signature">
+          <span class="signature-hearts">💖</span>
+          <span class="signature-text">Pooj</span>
+          <span class="signature-hearts">💖</span>
+        </div>
+
+        <!-- Decorative Bottom Border -->
+        <div class="decorative-bottom">
+          <span class="bottom-star">🌟</span>
+          <span class="bottom-line"></span>
+          <span class="bottom-tree">🎄</span>
+          <span class="bottom-line"></span>
+          <span class="bottom-star">🌟</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Friendship Wish Message -->
+    <div class="friendship-wish-overlay" id="friendshipWish">
+      <div class="friendship-wish-card">
+        <button class="close-wish" id="closeWish">✕</button>
+        <div class="wish-emoji-header">🌟 ✨ 💝 ✨ 🌟</div>
+        <h2 class="friendship-title">A Special Friendship Wish</h2>
+        <p class="friendship-message">
+          Dear Friend,<br><br>
+          As the snowflakes fall and the stars shine bright, I wanted to take a moment to wish you a Christmas filled
+          with warmth, joy, and endless laughter! 🎄✨<br><br>
+          Thank you for being such an amazing friend. Your kindness, support, and the beautiful memories we've shared
+          make every day brighter. May this festive season bring you happiness, peace, and all the wonderful things you
+          truly deserve! 🎅🎁<br><br>
+          Here's to many more adventures, laughter, and unforgettable moments together! 💖
+        </p>
+        <div class="friendship-signature">
+          With love and festive cheer,<br>
+          <strong>🎄 Pooja 🎄</strong>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Aurora Background (behind everything) -->
   <div class="aurora-background"></div>
+
+  <!-- Show Card Button -->
+  <button class="show-card-button" id="showCardButton">
+    🎄 Open Christmas Card 🎄
+  </button>
 
   <!-- Cursor Trail Container -->
   <div class="cursor-trail-container"></div>
