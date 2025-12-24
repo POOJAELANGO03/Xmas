@@ -1574,3 +1574,599 @@ body {
     display: block;
     margin-top: 0.5rem;
 }
+
+/* ============================================
+   PREMIUM GLASS CARD REDESIGN
+   ============================================ */
+
+/* Override glass card to make it more premium */
+.glass-card {
+    width: 450px !important;
+    padding: 3rem 2.5rem !important;
+    background: linear-gradient(135deg,
+            rgba(255, 107, 107, 0.15) 0%,
+            rgba(107, 207, 127, 0.15) 50%,
+            rgba(77, 171, 247, 0.15) 100%) !important;
+    backdrop-filter: blur(25px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+    border-radius: 30px !important;
+    border: 3px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.4),
+        0 0 100px rgba(255, 215, 0, 0.2) !important;
+    overflow: visible !important;
+}
+
+.glass-card.show {
+    animation: cardPulseGlow 3s ease-in-out infinite !important;
+}
+
+@keyframes cardPulseGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 15px 50px rgba(0, 0, 0, 0.3),
+            inset 0 2px 10px rgba(255, 255, 255, 0.4),
+            0 0 100px rgba(255, 215, 0, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.4),
+            inset 0 2px 15px rgba(255, 255, 255, 0.5),
+            0 0 150px rgba(255, 215, 0, 0.4);
+    }
+}
+
+/* Close Card Button */
+.close-card-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 45px;
+    height: 45px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 5px 20px rgba(255, 107, 107, 0.5),
+        inset 0 1px 5px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    animation: closeButtonPulse 2s ease-in-out infinite;
+}
+
+.close-card-btn:hover {
+    transform: rotate(90deg) scale(1.15);
+    background: linear-gradient(135deg, #ff8787 0%, #ffa5a5 100%);
+    box-shadow:
+        0 8px 30px rgba(255, 107, 107, 0.7),
+        inset 0 1px 8px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes closeButtonPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 5px 20px rgba(255, 107, 107, 0.5),
+            inset 0 1px 5px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 25px rgba(255, 107, 107, 0.7),
+            inset 0 1px 8px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Corner Decorations */
+.corner-decor {
+    position: absolute;
+    font-size: 2rem;
+    animation: cornerFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    z-index: 5;
+}
+
+.corner-top-left {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.corner-top-right {
+    top: -20px;
+    right: -20px;
+    animation-delay: 0.5s;
+}
+
+.corner-bottom-left {
+    bottom: -20px;
+    left: -20px;
+    animation-delay: 1s;
+}
+
+.corner-bottom-right {
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 1.5s;
+}
+
+@keyframes cornerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(10deg) scale(1.2);
+    }
+}
+
+/* Animated Border Lights */
+.border-light {
+    position: absolute;
+    z-index: 0;
+    animation: borderLightMove 3s linear infinite;
+}
+
+.light-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 215, 0, 0.8),
+            transparent);
+}
+
+.light-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 215, 0, 0.8),
+            transparent);
+    animation-delay: 1.5s;
+}
+
+.light-left {
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(255, 215, 0, 0.8),
+            transparent);
+    animation-delay: 0.75s;
+}
+
+.light-right {
+    right: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(255, 215, 0, 0.8),
+            transparent);
+    animation-delay: 2.25s;
+}
+
+@keyframes borderLightMove {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* Floating Ornaments */
+.floating-ornament {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: floatOrnament 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px currentColor);
+    z-index: 1;
+}
+
+.ornament-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.ornament-2 {
+    top: 25%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.ornament-3 {
+    bottom: 30%;
+    left: 12%;
+    animation-delay: 2s;
+}
+
+.ornament-4 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes floatOrnament {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Decorative Top Border */
+.decorative-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.deco-star {
+    font-size: 1.5rem;
+    animation: starTwinkle 1.5s ease-in-out infinite;
+}
+
+.deco-snowflake {
+    font-size: 1.8rem;
+    animation: snowflakeSpin 3s linear infinite;
+}
+
+.deco-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
+}
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px yellow);
+    }
+
+    50% {
+        transform: scale(1.3);
+        filter: drop-shadow(0 0 15px gold);
+    }
+}
+
+@keyframes snowflakeSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Title with Shimmer */
+.glass-title {
+    font-size: 2.3rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.title-shimmer {
+    background: linear-gradient(135deg,
+            #ff6b6b 0%,
+            #ffd93d 25%,
+            #6bcf7f 50%,
+            #4dabf7 75%,
+            #ff6b6b 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerMove 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes shimmerMove {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Button Wrapper with Glow */
+.button-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.button-glow {
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle,
+            rgba(255, 107, 107, 0.4) 0%,
+            transparent 70%);
+    border-radius: 20px;
+    animation: glowPulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced Wish Button */
+.wish-button {
+    position: relative !important;
+    padding: 1.3rem 2rem !important;
+    background: linear-gradient(135deg,
+            #ff6b6b 0%,
+            #ff8787 50%,
+            #ffa5a5 100%) !important;
+    border: 3px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 18px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    box-shadow:
+        0 8px 25px rgba(255, 107, 107, 0.5),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3) !important;
+    overflow: hidden !important;
+}
+
+.wish-button:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow:
+        0 15px 40px rgba(255, 107, 107, 0.7),
+        inset 0 2px 15px rgba(255, 255, 255, 0.5) !important;
+    background: linear-gradient(135deg,
+            #ff8787 0%,
+            #ffa5a5 50%,
+            #ffc0c0 100%) !important;
+}
+
+.button-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.6),
+            transparent);
+    animation: shineMove 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shineMove {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 200%;
+    }
+}
+
+.button-sparkle {
+    position: absolute;
+    font-size: 1rem;
+    animation: sparkleFloat 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.sparkle-1 {
+    top: -5px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.sparkle-2 {
+    bottom: -5px;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Decorative Divider */
+.decorative-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.divider-icon {
+    font-size: 2rem;
+    animation: heartBeat 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.8));
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+}
+
+/* Signature Enhancement */
+.glass-signature {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1.8rem !important;
+    text-align: center !important;
+}
+
+.signature-hearts {
+    font-size: 1.5rem;
+    animation: heartFloat 2s ease-in-out infinite;
+}
+
+.signature-text {
+    color: rgba(255, 107, 107, 0.98);
+    text-shadow:
+        0 2px 10px rgba(255, 107, 107, 0.8),
+        0 0 30px rgba(255, 107, 107, 0.4);
+    font-weight: 700;
+    animation: signatureGlow 2s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+}
+
+@keyframes signatureGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 2px 10px rgba(255, 107, 107, 0.8),
+            0 0 30px rgba(255, 107, 107, 0.4);
+    }
+
+    50% {
+        text-shadow:
+            0 2px 15px rgba(255, 107, 107, 1),
+            0 0 50px rgba(255, 107, 107, 0.6);
+    }
+}
+
+/* Decorative Bottom */
+.decorative-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bottom-star,
+.bottom-tree {
+    font-size: 1.5rem;
+}
+
+.bottom-star {
+    animation: bottomIconSpin 4s linear infinite;
+}
+
+.bottom-tree {
+    animation: bottomTreeSway 2s ease-in-out infinite;
+}
+
+.bottom-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(107, 207, 127, 0.6),
+            transparent);
+}
+
+@keyframes bottomIconSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bottomTreeSway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}

@@ -325,11 +325,19 @@ document.head.appendChild(style);
 function initializeCardControls() {
     const showCardButton = document.getElementById('showCardButton');
     const glassCard = document.querySelector('.glass-card');
+    const closeCardBtn = document.getElementById('closeCardBtn');
 
     if (showCardButton && glassCard) {
         showCardButton.addEventListener('click', () => {
             glassCard.classList.add('show');
             showCardButton.classList.add('hidden');
+        });
+    }
+
+    if (closeCardBtn && glassCard && showCardButton) {
+        closeCardBtn.addEventListener('click', () => {
+            glassCard.classList.remove('show');
+            showCardButton.classList.remove('hidden');
         });
     }
 }
