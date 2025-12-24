@@ -1058,18 +1058,81 @@ body {
 }
 
 @media (max-width: 480px) {
+    .container {
+        justify-content: space-evenly;
+        padding: 4rem 1rem 6rem 1rem;
+        /* Extra bottom padding for button */
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .sub-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
     .christmas-tree {
-        transform: scale(0.6);
+        transform: scale(0.55);
+        margin: -1rem 0;
+        /* Pull it up */
     }
 
     .santa-container {
-        transform: scale(0.7);
-        margin-bottom: 1rem;
+        transform: scale(0.6);
+        margin-bottom: 0;
     }
 
     .glass-card {
-        width: 90%;
+        width: 95%;
         padding: 1.5rem;
+    }
+
+    /* Center the button on mobile */
+    .show-card-button {
+        bottom: 30px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    /* Adjust hover/active for mobile centering */
+    .show-card-button:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .show-card-button:active {
+        transform: translateX(-50%) scale(0.95);
+    }
+
+    /* Friendship Card Mobile Optimization */
+    .friendship-wish-card {
+        padding: 1.5rem !important;
+        max-height: 90vh !important;
+        width: 95% !important;
+    }
+
+    .friendship-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .friendship-message {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .wish-emoji-header {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
     }
 }
 
