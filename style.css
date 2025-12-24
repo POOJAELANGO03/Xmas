@@ -1493,6 +1493,8 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     transform: scale(0.8);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .friendship-wish-overlay.show .friendship-wish-card {
@@ -1594,7 +1596,7 @@ body {
         0 15px 50px rgba(0, 0, 0, 0.3),
         inset 0 2px 10px rgba(255, 255, 255, 0.4),
         0 0 100px rgba(255, 215, 0, 0.2) !important;
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 
 .glass-card.show {
