@@ -1,0 +1,15 @@
+/* Card Position Override - Place in Center */
+.glass-card {
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+}
+
+.glass-card.show {
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.glass-card:hover {
+    transform: translate(-50%, -50%) scale(1.02) !important;
+}
