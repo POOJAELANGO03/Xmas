@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Snowflake Styles */
+  .snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    animation: snow linear infinite;
+    opacity: 0.8;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Premium button style */
+  .btn-premium {
+    @apply px-6 py-3 rounded-full font-bold text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg;
+    background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+  }
+
+  .btn-premium:hover {
+    box-shadow: 0 10px 40px rgba(196, 30, 58, 0.4);
+  }
+
+  /* Christmas card container */
+  .card-container {
+    background: linear-gradient(135deg, #0F4C28 0%, #165B33 50%, #1a472a 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Tree lights */
+  .tree-light {
+    @apply absolute rounded-full;
+    animation: twinkle 1.5s ease-in-out infinite;
+  }
+
+  /* Ornament styles */
+  .ornament {
+    @apply cursor-pointer transition-transform duration-200;
+  }
+
+  .ornament:hover {
+    @apply transform scale-110;
+  }
+
+  .ornament.sparkle-active {
+    animation: sparkle 0.6s ease-in-out;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utilities */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-christmas {
+    background: linear-gradient(135deg, #C41E3A 0%, #FFD700 50%, #165B33 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Shadow utilities */
+  .shadow-glow-red {
+    box-shadow: 0 0 20px rgba(196, 30, 58, 0.6), 0 0 40px rgba(196, 30, 58, 0.4);
+  }
+
+  .shadow-glow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
+  }
+
+  .shadow-glow-green {
+    box-shadow: 0 0 20px rgba(22, 91, 51, 0.6), 0 0 40px rgba(22, 91, 51, 0.4);
+  }
+}
+
+/* Additional keyframes for special effects */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 3s infinite linear;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+}

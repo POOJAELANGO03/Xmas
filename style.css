@@ -1,0 +1,741 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        #0f2027 0%, 
+        #203a43 25%, 
+        #2c5364 50%,
+        #1a3a4a 75%,
+        #0f2027 100%
+    );
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   FALLING SNOW ANIMATION
+   ============================================ */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5em;
+    animation: snowfall linear infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* Individual snowflake animations with delays and speeds */
+.snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 10%; animation-duration: 12s; animation-delay: 1s; font-size: 1.8em; }
+.snowflake:nth-child(3) { left: 15%; animation-duration: 9s; animation-delay: 2s; font-size: 1.2em; }
+.snowflake:nth-child(4) { left: 20%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(5) { left: 25%; animation-duration: 13s; animation-delay: 1.5s; font-size: 1.6em; }
+.snowflake:nth-child(6) { left: 30%; animation-duration: 10s; animation-delay: 3s; }
+.snowflake:nth-child(7) { left: 35%; animation-duration: 14s; animation-delay: 2.5s; font-size: 1.4em; }
+.snowflake:nth-child(8) { left: 40%; animation-duration: 11s; animation-delay: 1s; }
+.snowflake:nth-child(9) { left: 45%; animation-duration: 12s; animation-delay: 0s; font-size: 1.7em; }
+.snowflake:nth-child(10) { left: 50%; animation-duration: 10s; animation-delay: 2s; }
+.snowflake:nth-child(11) { left: 55%; animation-duration: 13s; animation-delay: 1.5s; font-size: 1.3em; }
+.snowflake:nth-child(12) { left: 60%; animation-duration: 9s; animation-delay: 0.5s; }
+.snowflake:nth-child(13) { left: 65%; animation-duration: 11s; animation-delay: 2.5s; font-size: 1.5em; }
+.snowflake:nth-child(14) { left: 70%; animation-duration: 12s; animation-delay: 1s; }
+.snowflake:nth-child(15) { left: 75%; animation-duration: 10s; animation-delay: 3s; font-size: 1.9em; }
+.snowflake:nth-child(16) { left: 80%; animation-duration: 14s; animation-delay: 0s; }
+.snowflake:nth-child(17) { left: 85%; animation-duration: 11s; animation-delay: 2s; font-size: 1.4em; }
+.snowflake:nth-child(18) { left: 90%; animation-duration: 13s; animation-delay: 1.5s; }
+.snowflake:nth-child(19) { left: 95%; animation-duration: 10s; animation-delay: 0.5s; font-size: 1.6em; }
+.snowflake:nth-child(20) { left: 3%; animation-duration: 12s; animation-delay: 2.5s; }
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+/* ============================================
+   GREETING TEXT ANIMATION
+   ============================================ */
+.greeting-text {
+    text-align: center;
+    margin-top: 2rem;
+    animation: slideInFadeIn 1.5s ease-out;
+}
+
+@keyframes slideInFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    animation: textGlow 2s ease-in-out infinite alternate;
+    margin-bottom: 0.5rem;
+}
+
+.sub-title {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    background: linear-gradient(135deg, #ffd93d 0%, #ff6b6b 50%, #6bcf7f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGlow 2s ease-in-out infinite alternate 0.5s;
+    margin-bottom: 1rem;
+}
+
+.emoji-line {
+    font-size: clamp(2rem, 4vw, 3rem);
+    animation: bounceEmoji 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+    100% {
+        filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+    }
+}
+
+@keyframes bounceEmoji {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ============================================
+   CHRISTMAS TREE
+   ============================================ */
+.christmas-tree {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.5));
+}
+
+/* Star on Top */
+.star {
+    font-size: 3rem;
+    animation: starGlow 1.5s ease-in-out infinite alternate, starRotate 4s linear infinite;
+    margin-bottom: -10px;
+    z-index: 10;
+}
+
+@keyframes starGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        transform: scale(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1));
+        transform: scale(1.2);
+    }
+}
+
+@keyframes starRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Tree Layers */
+.tree-layer {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #2d5f2e;
+    position: relative;
+    margin-top: -20px;
+    animation: treeGlitter 3s ease-in-out infinite;
+}
+
+.layer-1 {
+    border-left-width: 40px;
+    border-right-width: 40px;
+    border-bottom-width: 60px;
+}
+
+.layer-2 {
+    border-left-width: 60px;
+    border-right-width: 60px;
+    border-bottom-width: 90px;
+}
+
+.layer-3 {
+    border-left-width: 80px;
+    border-right-width: 80px;
+    border-bottom-width: 110px;
+}
+
+.layer-4 {
+    border-left-width: 100px;
+    border-right-width: 100px;
+    border-bottom-width: 130px;
+}
+
+.layer-5 {
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 150px;
+}
+
+@keyframes treeGlitter {
+    0%, 100% {
+        filter: brightness(1) drop-shadow(0 0 5px rgba(76, 175, 80, 0.5));
+    }
+    50% {
+        filter: brightness(1.3) drop-shadow(0 0 15px rgba(76, 175, 80, 0.8));
+    }
+}
+
+/* Tree Trunk */
+.tree-trunk {
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(180deg, #6d4c41 0%, #5d4037 100%);
+    margin-top: -5px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Ornaments */
+.ornament {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    animation: ornamentShine 2s ease-in-out infinite;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.ornament-red {
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+    animation-delay: 0s;
+}
+
+.ornament-gold {
+    background: radial-gradient(circle at 30% 30%, #ffd93d, #f59f00);
+    animation-delay: 0.7s;
+}
+
+.ornament-blue {
+    background: radial-gradient(circle at 30% 30%, #4dabf7, #1971c2);
+    animation-delay: 1.4s;
+}
+
+@keyframes ornamentShine {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Ornament Positions */
+.layer-1 .ornament:nth-child(1) { left: 10px; top: 30px; }
+.layer-1 .ornament:nth-child(2) { right: 15px; top: 25px; }
+
+.layer-2 .ornament:nth-child(1) { left: 5px; top: 40px; }
+.layer-2 .ornament:nth-child(2) { left: 50%; top: 35px; }
+.layer-2 .ornament:nth-child(3) { right: 8px; top: 38px; }
+
+.layer-3 .ornament:nth-child(1) { left: 8px; top: 50px; }
+.layer-3 .ornament:nth-child(2) { left: 35%; top: 45px; }
+.layer-3 .ornament:nth-child(3) { right: 35%; top: 47px; }
+.layer-3 .ornament:nth-child(4) { right: 10px; top: 52px; }
+
+.layer-4 .ornament:nth-child(1) { left: 12px; top: 60px; }
+.layer-4 .ornament:nth-child(2) { left: 30%; top: 55px; }
+.layer-4 .ornament:nth-child(3) { left: 50%; top: 58px; }
+.layer-4 .ornament:nth-child(4) { right: 30%; top: 57px; }
+.layer-4 .ornament:nth-child(5) { right: 15px; top: 62px; }
+
+.layer-5 .ornament:nth-child(1) { left: 15px; top: 70px; }
+.layer-5 .ornament:nth-child(2) { left: 25%; top: 65px; }
+.layer-5 .ornament:nth-child(3) { left: 40%; top: 68px; }
+.layer-5 .ornament:nth-child(4) { right: 40%; top: 67px; }
+.layer-5 .ornament:nth-child(5) { right: 25%; top: 69px; }
+.layer-5 .ornament:nth-child(6) { right: 18px; top: 72px; }
+
+/* Twinkling Lights */
+.light {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: twinkle 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 5px currentColor;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px currentColor;
+    }
+}
+
+.light-1 { background: #ff6b6b; top: 80px; left: 20px; animation-delay: 0s; }
+.light-2 { background: #ffd93d; top: 90px; right: 25px; animation-delay: 0.2s; }
+.light-3 { background: #4dabf7; top: 140px; left: 15px; animation-delay: 0.4s; }
+.light-4 { background: #ff6b6b; top: 160px; left: 45%; animation-delay: 0.6s; }
+.light-5 { background: #6bcf7f; top: 150px; right: 20px; animation-delay: 0.8s; }
+.light-6 { background: #ffd93d; top: 210px; left: 25px; animation-delay: 1s; }
+.light-7 { background: #4dabf7; top: 230px; left: 40%; animation-delay: 1.2s; }
+.light-8 { background: #ff6b6b; top: 220px; right: 30px; animation-delay: 0.3s; }
+.light-9 { background: #6bcf7f; top: 280px; left: 30px; animation-delay: 0.5s; }
+.light-10 { background: #ffd93d; top: 300px; left: 50%; animation-delay: 0.7s; }
+.light-11 { background: #4dabf7; top: 290px; right: 35px; animation-delay: 0.9s; }
+.light-12 { background: #ff6b6b; top: 350px; left: 45%; animation-delay: 1.1s; }
+
+/* ============================================
+   DANCING SANTA
+   ============================================ */
+.santa-container {
+    position: relative;
+    margin-bottom: 3rem;
+    animation: santaBounce 2s ease-in-out infinite;
+}
+
+@keyframes santaBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-20px) scale(1.05) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-20px) scale(1.05) rotate(5deg);
+    }
+}
+
+.santa {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Santa Head */
+.santa-head {
+    position: relative;
+    z-index: 3;
+    animation: headBob 1s ease-in-out infinite alternate;
+}
+
+@keyframes headBob {
+    0% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+.santa-hat {
+    position: relative;
+    width: 80px;
+    height: 60px;
+}
+
+.hat-top {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid #dc3545;
+    position: relative;
+    filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.5));
+}
+
+.hat-pom {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: pomBounce 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pomBounce {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.santa-face {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 40% 40%, #ffccbc, #ff8a65);
+    border-radius: 50%;
+    position: relative;
+    margin-top: -10px;
+}
+
+.eye {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #212529;
+    border-radius: 50%;
+    top: 25px;
+    animation: eyeBlink 3s ease-in-out infinite;
+}
+
+@keyframes eyeBlink {
+    0%, 96%, 100% {
+        transform: scaleY(1);
+    }
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+.eye-left {
+    left: 18px;
+}
+
+.eye-right {
+    right: 18px;
+}
+
+.nose {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+    border-radius: 50%;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
+}
+
+.beard {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: radial-gradient(circle at 50% 30%, #ffffff, #e0e0e0);
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Santa Body */
+.santa-body {
+    width: 90px;
+    height: 80px;
+    background: linear-gradient(180deg, #dc3545 0%, #bd2130 100%);
+    border-radius: 10px;
+    position: relative;
+    margin-top: -5px;
+    z-index: 2;
+}
+
+.belt {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    background: #212529;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.belt-buckle {
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(135deg, #ffd93d 0%, #f59f00 100%);
+    border: 2px solid #212529;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(255, 217, 61, 0.6);
+}
+
+.arm {
+    position: absolute;
+    width: 25px;
+    height: 60px;
+    background: linear-gradient(180deg, #dc3545 0%, #bd2130 100%);
+    border-radius: 15px;
+    top: 10px;
+    animation: armWave 1s ease-in-out infinite;
+}
+
+.arm-left {
+    left: -15px;
+    transform-origin: top center;
+    animation-delay: 0s;
+}
+
+.arm-right {
+    right: -15px;
+    transform-origin: top center;
+    animation-delay: 0.5s;
+}
+
+@keyframes armWave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+    }
+}
+
+/* Santa Legs */
+.santa-legs {
+    display: flex;
+    gap: 10px;
+    margin-top: -5px;
+    z-index: 1;
+}
+
+.leg {
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(180deg, #dc3545 0%, #212529 60%);
+    border-radius: 5px 5px 10px 10px;
+    animation: legKick 0.5s ease-in-out infinite alternate;
+}
+
+.leg-left {
+    animation-delay: 0s;
+}
+
+.leg-right {
+    animation-delay: 0.25s;
+}
+
+@keyframes legKick {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(5px) rotate(5deg);
+    }
+}
+
+/* Music Notes */
+.music-note {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatNote 3s ease-in-out infinite;
+    opacity: 0;
+}
+
+.note-1 {
+    left: -50px;
+    top: 20px;
+    animation-delay: 0s;
+}
+
+.note-2 {
+    right: -50px;
+    top: 40px;
+    animation-delay: 1s;
+}
+
+.note-3 {
+    left: 50%;
+    top: -30px;
+    animation-delay: 2s;
+}
+
+@keyframes floatNote {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   SPARKLES
+   ============================================ */
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkleFloat 4s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.sparkle-2 {
+    right: 15%;
+    top: 30%;
+    animation-delay: 0.8s;
+}
+
+.sparkle-3 {
+    left: 20%;
+    bottom: 25%;
+    animation-delay: 1.6s;
+}
+
+.sparkle-4 {
+    right: 10%;
+    bottom: 35%;
+    animation-delay: 2.4s;
+}
+
+.sparkle-5 {
+    left: 50%;
+    top: 15%;
+    animation-delay: 3.2s;
+}
+
+@keyframes sparkleFloat {
+    0%, 100% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-30px) scale(1) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .greeting-text {
+        margin-top: 1rem;
+    }
+
+    .christmas-tree {
+        transform: scale(0.8);
+    }
+
+    .santa-container {
+        transform: scale(0.9);
+        margin-bottom: 2rem;
+    }
+
+    .tree-layer {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .christmas-tree {
+        transform: scale(0.6);
+    }
+
+    .santa-container {
+        transform: scale(0.7);
+        margin-bottom: 1rem;
+    }
+}
