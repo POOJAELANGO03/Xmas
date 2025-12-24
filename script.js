@@ -25,6 +25,9 @@ function initializeAllFeatures() {
     // Card and Wish Controls  
     initializeCardControls();
     initializeFriendshipWish();
+
+    // Background Music
+    initializeBackgroundMusic();
 }
 
 // ============================================
@@ -366,6 +369,36 @@ function initializeFriendshipWish() {
             if (e.target === friendshipWish) {
                 friendshipWish.classList.remove('show');
             }
+        });
+    }
+}
+
+// ============================================
+//    BACKGROUND CHRISTMAS MUSIC
+// ============================================
+function initializeBackgroundMusic() {
+    const music = document.getElementById('christmasMusic');
+    if (!music) return;
+
+    // Set volume
+    music.volume = 0.3;
+
+    // Try to play immediately
+    const tryPlay = music.play();
+
+    if (tryPlay !== undefined) {
+        tryPlay.catch(() => {
+            // If autoplay is blocked, start on first click anywhere
+            const startMusic = () => {
+                music.play().catch(() => { });
+                document.removeEventListener('click', startMusic);
+                document.removeEventListener('touchstart', startMusic);
+                document.removeEventListener('keydown', startMusic);
+            };
+
+            document.addEventListener('click', startMusic);
+            document.addEventListener('touchstart', startMusic);
+            document.addEventListener('keydown', startMusic);
         });
     }
 }
