@@ -131,7 +131,8 @@
     <!-- Frosted Glass Message Card -->
     <div class="glass-card">
       <!-- Close Button -->
-      <button class="close-card-btn" id="closeCardBtn">✕</button>
+      <button class="close-card-btn" id="closeCardBtn"
+        onclick="this.parentElement.classList.remove('show'); document.getElementById('showCardButton').classList.remove('hidden')">✕</button>
 
       <!-- Decorative Corner Elements -->
       <div class="corner-decor corner-top-left">❄️</div>
@@ -195,7 +196,8 @@
     <!-- Hidden Friendship Wish Message -->
     <div class="friendship-wish-overlay" id="friendshipWish">
       <div class="friendship-wish-card">
-        <button class="close-wish" id="closeWish">✕</button>
+        <button class="close-wish" id="closeWish"
+          onclick="document.getElementById('friendshipWish').classList.remove('show')">✕</button>
         <div class="wish-emoji-header">🌟 ✨ 💝 ✨ 🌟</div>
         <h2 class="friendship-title">A Special Friendship Wish</h2>
         <p class="friendship-message">
